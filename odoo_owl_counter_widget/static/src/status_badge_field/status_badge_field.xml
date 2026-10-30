@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="odoo_owl_counter_widget.StatusBadgeField">
+        <!-- class fixe + t-att-class calculée (fusionnées par OWL), ex. text-bg-success -->
+        <span t-if="value" class="badge rounded-pill o_status_badge"
+              t-att-class="'text-bg-' + color" t-att-data-value="value" t-esc="label"/>
+    </t>
+
+</templates>
