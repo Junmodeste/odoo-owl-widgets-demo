@@ -1,14 +1,14 @@
 # Odoo OWL Widgets Demo
 
-[![tests](https://github.com/Junmodeste/odoo-owl-widgets-demo/actions/workflows/tests.yml/badge.svg?branch=19.0)](https://github.com/Junmodeste/odoo-owl-widgets-demo/actions/workflows/tests.yml)
-[![Odoo 19](https://img.shields.io/badge/Odoo-19.0-714B67)](https://www.odoo.com)
+[![tests](https://github.com/Junmodeste/odoo-owl-widgets-demo/actions/workflows/tests.yml/badge.svg?branch=18.0)](https://github.com/Junmodeste/odoo-owl-widgets-demo/actions/workflows/tests.yml)
+[![Odoo 18](https://img.shields.io/badge/Odoo-18.0-714B67)](https://www.odoo.com)
 [![License: LGPL-3](https://img.shields.io/badge/License-LGPL--3-blue.svg)](LICENSE)
 
 🇫🇷 [Français](#français) · 🇬🇧 [English](#english)
 
 ## Français
 
-Le module `odoo_owl_counter_widget` montre, avec un code commenté en français, comment écrire des widgets de champ OWL pour Odoo 19.
+Le module `odoo_owl_counter_widget` montre, avec un code commenté en français, comment écrire des widgets de champ OWL pour Odoo 18.
 Il fournit `counter` (entier avec boutons − / +, sans boutons en lecture seule) et `status_badge` (champ selection affiché en badge coloré), ainsi qu'un petit modèle de démo pour les essayer.
 
 ![Formulaire de démo](odoo_owl_counter_widget/static/description/form.jpg)
@@ -32,7 +32,7 @@ Utilisation dans une vue :
 
 ### Prérequis
 
-- Odoo 19 (Community ou Enterprise) ; seul le module `web` est requis
+- Odoo 18 (Community ou Enterprise) ; seul le module `web` est requis
 
 ### Installation
 
@@ -42,9 +42,9 @@ Utilisation dans une vue :
 
 Tests JS : connecté en administrateur, ouvrez `/web/tests?filter=odoo_owl_counter_widget`. Le test Python `tests/test_js.py` les lance aussi dans Chrome headless (il est ignoré si Chrome n'est pas installé).
 
-### Version supportée
+### Versions supportées
 
-Odoo **19.0** uniquement. Testé sur Odoo 19 Community (image `odoo:19` 19.0-20261102), à chaque push par GitHub Actions. La CI lance les tests Python ; les tests JS hoot y sont ignorés (pas de Chrome dans l'image), lancez-les dans le navigateur.
+Cette branche : Odoo **18.0**. Autres branches : [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0). Testé sur Odoo 18 Community (image `odoo:18` 18.0-20261102), à chaque push par GitHub Actions. La CI lance les tests Python ; les tests JS hoot y sont ignorés (pas de Chrome dans l'image), lancez-les dans le navigateur.
 
 ### Licence
 
@@ -56,7 +56,7 @@ Koffi Modeste Junior — [@Junmodeste](https://github.com/Junmodeste)
 
 ## English
 
-The `odoo_owl_counter_widget` module shows, with code commented in French, how to write OWL field widgets for Odoo 19.
+The `odoo_owl_counter_widget` module shows, with code commented in French, how to write OWL field widgets for Odoo 18.
 It ships `counter` (integer with − / + buttons, no buttons when read-only) and `status_badge` (selection field shown as a colored badge), plus a small demo model to try them.
 
 ### What to read
@@ -71,7 +71,7 @@ It ships `counter` (integer with − / + buttons, no buttons when read-only) and
 
 ### Requirements
 
-- Odoo 19 (Community or Enterprise); only the `web` module is required
+- Odoo 18 (Community or Enterprise); only the `web` module is required
 
 ### Installation
 
@@ -81,9 +81,9 @@ It ships `counter` (integer with − / + buttons, no buttons when read-only) and
 
 JS tests: logged in as administrator, open `/web/tests?filter=odoo_owl_counter_widget`. The Python test `tests/test_js.py` also runs them in headless Chrome (skipped when Chrome is not installed).
 
-### Supported version
+### Supported versions
 
-Odoo **19.0** only. Tested on Odoo 19 Community (`odoo:19` image 19.0-20261102) on every push by GitHub Actions. CI runs the Python tests; the hoot JS tests are skipped there (no Chrome in the image), run them in the browser.
+This branch: Odoo **18.0**. Other branches: [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0). Tested on Odoo 18 Community (`odoo:18` image 18.0-20261102) on every push by GitHub Actions. CI runs the Python tests; the hoot JS tests are skipped there (no Chrome in the image), run them in the browser.
 
 ### License
 

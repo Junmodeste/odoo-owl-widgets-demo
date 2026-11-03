@@ -1,5 +1,5 @@
 /**
- * Tests JS (hoot, le framework de tests unitaires d'Odoo 19).
+ * Tests JS (hoot, le framework de tests unitaires d'Odoo 18).
  * Lancement : /web/tests?filter=odoo_owl_counter_widget (connecté en admin, mode debug).
  *
  * mountView monte une vraie vue avec un serveur simulé : aucun accès à la base.
