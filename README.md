@@ -1,5 +1,6 @@
 # Odoo OWL Widgets Demo
 
+[![tests](https://github.com/Junmodeste/odoo-owl-widgets-demo/actions/workflows/tests.yml/badge.svg?branch=19.0)](https://github.com/Junmodeste/odoo-owl-widgets-demo/actions/workflows/tests.yml)
 [![Odoo 19](https://img.shields.io/badge/Odoo-19.0-714B67)](https://www.odoo.com)
 [![License: LGPL-3](https://img.shields.io/badge/License-LGPL--3-blue.svg)](LICENSE)
 
@@ -43,7 +44,7 @@ Tests JS : connecté en administrateur, ouvrez `/web/tests?filter=odoo_owl_count
 
 ### Version supportée
 
-Odoo **19.0** uniquement. Testé sur Odoo 19 Enterprise (image `odoo:19` 19.0-20261015).
+Odoo **19.0** uniquement. Testé sur Odoo 19 Community (image `odoo:19` 19.0-20261102), à chaque push par GitHub Actions. La CI lance les tests Python ; les tests JS hoot y sont ignorés (pas de Chrome dans l'image), lancez-les dans le navigateur.
 
 ### Licence
 
@@ -82,7 +83,7 @@ JS tests: logged in as administrator, open `/web/tests?filter=odoo_owl_counter_w
 
 ### Supported version
 
-Odoo **19.0** only. Tested on Odoo 19 Enterprise (`odoo:19` image 19.0-20261015).
+Odoo **19.0** only. Tested on Odoo 19 Community (`odoo:19` image 19.0-20261102) on every push by GitHub Actions. CI runs the Python tests; the hoot JS tests are skipped there (no Chrome in the image), run them in the browser.
 
 ### License
 
