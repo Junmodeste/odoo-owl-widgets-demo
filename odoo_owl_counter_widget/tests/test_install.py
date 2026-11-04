@@ -13,6 +13,14 @@ class TestInstall(TransactionCase):
         self.assertIn('widget="counter"', arch)
         self.assertIn('widget="status_badge"', arch)
 
+    def test_demo_data(self):
+        module = self.env["ir.module.module"].search([("name", "=", "odoo_owl_counter_widget")])
+        if not module.demo:
+            self.skipTest("données de démo non chargées (base créée avec --without-demo)")
+        tasks = self.env["owl.demo.task"].search([])
+        # Une tâche de démo par état : chaque couleur de badge est visible.
+        self.assertEqual(set(tasks.mapped("state")), {"draft", "in_progress", "done", "blocked"})
+
     def test_assets_declared(self):
         # Les fichiers JS des widgets sont bien dans le bundle backend.
         files = [path for _addon, path, *_ in self.env["ir.asset"]._get_asset_paths("web.assets_backend", {})]
