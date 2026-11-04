@@ -1,7 +1,7 @@
 {
     "name": "OWL Widgets Demo (counter, status badge)",
-    "summary": "Educational OWL field widgets for Odoo 18: counter and status badge",
-    "version": "18.0.1.0.0",
+    "summary": "Educational OWL field widgets for Odoo 17: counter and status badge",
+    "version": "17.0.1.0.0",
     "category": "Hidden/Tools",
     "license": "LGPL-3",
     "author": "Koffi Modeste Junior",
@@ -16,8 +16,8 @@
         "web.assets_backend": [
             "odoo_owl_counter_widget/static/src/**/*",
         ],
-        # Chargés uniquement par la page de tests JS /web/tests (hoot).
-        "web.assets_unit_tests": [
+        # Chargés uniquement par la page de tests JS /web/tests (QUnit).
+        "web.qunit_suite_tests": [
             "odoo_owl_counter_widget/static/tests/**/*.test.js",
         ],
     },

@@ -4,12 +4,12 @@
         <field name="name">owl.demo.task.list</field>
         <field name="model">owl.demo.task</field>
         <field name="arch" type="xml">
-            <list>
+            <tree>
                 <field name="name"/>
                 <field name="quantity"/>
                 <!-- Les widgets de champ fonctionnent aussi en liste -->
                 <field name="state" widget="status_badge"/>
-            </list>
+            </tree>
         </field>
     </record>
 
@@ -38,7 +38,7 @@
     <record id="owl_demo_task_action" model="ir.actions.act_window">
         <field name="name">OWL Widgets Demo</field>
         <field name="res_model">owl.demo.task</field>
-        <field name="view_mode">list,form</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <menuitem id="owl_demo_menu_root" name="OWL Widgets Demo" action="owl_demo_task_action"

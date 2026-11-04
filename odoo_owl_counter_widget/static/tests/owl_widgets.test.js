@@ -1,91 +1,87 @@
+/** @odoo-module **/
 /**
- * Tests JS (hoot, le framework de tests unitaires d'Odoo 18).
+ * Tests JS (QUnit, le framework de tests unitaires d'Odoo 17).
  * Lancement : /web/tests?filter=odoo_owl_counter_widget (connecté en admin, mode debug).
  *
- * mountView monte une vraie vue avec un serveur simulé : aucun accès à la base.
+ * makeView monte une vraie vue avec un serveur simulé (serverData) : aucun accès à la base.
  */
-import { expect, test } from "@odoo/hoot";
-import { click } from "@odoo/hoot-dom";
-import { animationFrame } from "@odoo/hoot-mock";
-import { defineModels, fields, models, mountView } from "@web/../tests/web_test_helpers";
+import { click, getFixture } from "@web/../tests/helpers/utils";
+import { makeView, setupViewRegistries } from "@web/../tests/views/helpers";
 
-// Modèle simulé, déclaré uniquement pour les tests.
-class Task extends models.Model {
-    _name = "owl.demo.task";
+let serverData;
+let target;
 
-    quantity = fields.Integer();
-    state = fields.Selection({
-        selection: [
-            ["draft", "Draft"],
-            ["done", "Done"],
-            ["blocked", "Blocked"],
-        ],
+QUnit.module("odoo_owl_counter_widget", (hooks) => {
+    hooks.beforeEach(() => {
+        target = getFixture();
+        // Modèle simulé, déclaré uniquement pour les tests.
+        serverData = {
+            models: {
+                "owl.demo.task": {
+                    fields: {
+                        quantity: { string: "Quantity", type: "integer" },
+                        state: {
+                            string: "State",
+                            type: "selection",
+                            selection: [
+                                ["draft", "Draft"],
+                                ["done", "Done"],
+                                ["blocked", "Blocked"],
+                            ],
+                        },
+                    },
+                    records: [{ id: 1, quantity: 3, state: "done" }],
+                },
+            },
+        };
+        setupViewRegistries();
     });
 
-    _records = [{ id: 1, quantity: 3, state: "done" }];
-}
+    const mountForm = (fieldArch) =>
+        makeView({
+            type: "form",
+            resModel: "owl.demo.task",
+            resId: 1,
+            serverData,
+            arch: `<form>${fieldArch}</form>`,
+        });
 
-defineModels([Task]);
+    QUnit.test("counter: + and − buttons update the value", async (assert) => {
+        await mountForm(`<field name="quantity" widget="counter"/>`);
+        const value = () => target.querySelector(".o_counter_value").textContent.trim();
+        assert.strictEqual(value(), "3");
 
-test("counter: + and − buttons update the value", async () => {
-    await mountView({
-        resModel: "owl.demo.task",
-        resId: 1,
-        type: "form",
-        arch: `<form><field name="quantity" widget="counter"/></form>`,
+        await click(target, ".o_counter_plus");
+        assert.strictEqual(value(), "4");
+
+        await click(target, ".o_counter_minus");
+        await click(target, ".o_counter_minus");
+        assert.strictEqual(value(), "2");
     });
-    expect(".o_counter_value").toHaveText("3");
 
-    await click(".o_counter_plus");
-    await animationFrame();
-    expect(".o_counter_value").toHaveText("4");
-
-    await click(".o_counter_minus");
-    await click(".o_counter_minus");
-    await animationFrame();
-    expect(".o_counter_value").toHaveText("2");
-});
-
-test("counter: step option", async () => {
-    await mountView({
-        resModel: "owl.demo.task",
-        resId: 1,
-        type: "form",
-        arch: `<form><field name="quantity" widget="counter" options="{'step': 5}"/></form>`,
+    QUnit.test("counter: step option", async (assert) => {
+        await mountForm(`<field name="quantity" widget="counter" options="{'step': 5}"/>`);
+        await click(target, ".o_counter_plus");
+        assert.strictEqual(target.querySelector(".o_counter_value").textContent.trim(), "8");
     });
-    await click(".o_counter_plus");
-    await animationFrame();
-    expect(".o_counter_value").toHaveText("8");
-});
 
-test("counter: no buttons in readonly mode", async () => {
-    await mountView({
-        resModel: "owl.demo.task",
-        resId: 1,
-        type: "form",
-        arch: `<form><field name="quantity" widget="counter" readonly="1"/></form>`,
+    QUnit.test("counter: no buttons in readonly mode", async (assert) => {
+        await mountForm(`<field name="quantity" widget="counter" readonly="1"/>`);
+        assert.strictEqual(target.querySelector(".o_counter_value").textContent.trim(), "3");
+        assert.containsNone(target, ".o_counter_field button");
     });
-    expect(".o_counter_value").toHaveText("3");
-    expect(".o_counter_field button").toHaveCount(0);
-});
 
-test("status_badge: label and color depend on the value", async () => {
-    await mountView({
-        resModel: "owl.demo.task",
-        resId: 1,
-        type: "form",
-        arch: `<form><field name="state" widget="status_badge"/></form>`,
+    QUnit.test("status_badge: label and color depend on the value", async (assert) => {
+        await mountForm(`<field name="state" widget="status_badge"/>`);
+        const badge = target.querySelector(".o_status_badge");
+        assert.strictEqual(badge.textContent.trim(), "Done");
+        assert.hasClass(badge, "text-bg-success");
     });
-    expect(".o_status_badge").toHaveText("Done");
-    expect(".o_status_badge").toHaveClass("text-bg-success");
-});
 
-test("status_badge: colors option overrides the default", async () => {
-    await mountView({
-        resModel: "owl.demo.task",
-        resId: 1,
-        type: "form",
-        arch: `<form><field name="state" widget="status_badge" options="{'colors': {'done': 'warning'}}"/></form>`,
+    QUnit.test("status_badge: colors option overrides the default", async (assert) => {
+        await mountForm(
+            `<field name="state" widget="status_badge" options="{'colors': {'done': 'warning'}}"/>`
+        );
+        assert.hasClass(target.querySelector(".o_status_badge"), "text-bg-warning");
     });
-    expect(".o_status_badge").toHaveClass("text-bg-warning");
 });

@@ -1,3 +1,4 @@
+/** @odoo-module **/
 /**
  * Widget de champ « status_badge » : affiche un champ selection sous forme de
  * badge coloré. Widget d'affichage uniquement (il ne modifie pas la valeur).

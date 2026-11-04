@@ -1,7 +1,8 @@
+/** @odoo-module **/
 /**
  * Widget de champ « counter » : affiche un entier avec des boutons − et +.
  *
- * Un widget de champ Odoo 18 = un composant OWL + un objet de description
+ * Un widget de champ Odoo 17 = un composant OWL + un objet de description
  * enregistré dans le registre `fields`. Le nom d'enregistrement ("counter")
  * est celui utilisé dans les vues : <field name="quantity" widget="counter"/>.
  */
