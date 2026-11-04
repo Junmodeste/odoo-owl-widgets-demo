@@ -1,7 +1,7 @@
 {
     "name": "OWL Widgets Demo (counter, status badge)",
     "summary": "Educational OWL field widgets for Odoo 18: counter and status badge",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.1.0",
     "category": "Hidden/Tools",
     "license": "LGPL-3",
     "author": "Koffi Modeste Junior",
@@ -10,6 +10,9 @@
     "data": [
         "security/ir.model.access.csv",
         "views/owl_demo_task_views.xml",
+    ],
+    "demo": [
+        "demo/owl_demo_task_demo.xml",
     ],
     "assets": {
         # Chargés dans le client web (backend).

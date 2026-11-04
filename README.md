@@ -38,7 +38,7 @@ Utilisation dans une vue :
 
 1. Copiez `odoo_owl_counter_widget` dans votre chemin d'addons.
 2. Mettez à jour la liste des applications puis installez **OWL Widgets Demo**.
-3. Ouvrez le menu **OWL Widgets Demo** et créez une tâche.
+3. Ouvrez le menu **OWL Widgets Demo** et créez une tâche. Sur une base avec données de démonstration (chargées par défaut en Odoo 18, sauf `--without-demo`), quatre tâches, une par état, sont déjà présentes.
 
 Tests JS : connecté en administrateur, ouvrez `/web/tests?filter=odoo_owl_counter_widget`. Le test Python `tests/test_js.py` les lance aussi dans Chrome headless (il est ignoré si Chrome n'est pas installé).
 
@@ -77,7 +77,7 @@ It ships `counter` (integer with − / + buttons, no buttons when read-only) and
 
 1. Copy `odoo_owl_counter_widget` into your addons path.
 2. Update the apps list and install **OWL Widgets Demo**.
-3. Open the **OWL Widgets Demo** menu and create a task.
+3. Open the **OWL Widgets Demo** menu and create a task. On a database with demo data (loaded by default in Odoo 18 unless `--without-demo`), four tasks, one per state, are already there.
 
 JS tests: logged in as administrator, open `/web/tests?filter=odoo_owl_counter_widget`. The Python test `tests/test_js.py` also runs them in headless Chrome (skipped when Chrome is not installed).
 

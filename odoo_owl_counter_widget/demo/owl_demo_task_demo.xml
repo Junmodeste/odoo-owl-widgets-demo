@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Une tâche par état : toutes les couleurs de badge d'un coup d'œil. -->
+    <record id="owl_demo_task_draft" model="owl.demo.task">
+        <field name="name">Prepare the quotation</field>
+        <field name="quantity">1</field>
+        <field name="state">draft</field>
+    </record>
+    <record id="owl_demo_task_in_progress" model="owl.demo.task">
+        <field name="name">Deliver the goods</field>
+        <field name="quantity">5</field>
+        <field name="state">in_progress</field>
+    </record>
+    <record id="owl_demo_task_done" model="owl.demo.task">
+        <field name="name">Send the invoice</field>
+        <field name="quantity">3</field>
+        <field name="state">done</field>
+    </record>
+    <record id="owl_demo_task_blocked" model="owl.demo.task">
+        <field name="name">Collect the payment</field>
+        <field name="quantity">0</field>
+        <field name="state">blocked</field>
+    </record>
+</odoo>
