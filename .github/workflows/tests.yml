@@ -20,5 +20,5 @@ jobs:
           # The image entrypoint reads the database settings from HOST/USER/PASSWORD.
           docker run --rm --network odoo -e HOST=db -e USER=odoo -e PASSWORD=odoo \
             -v "$PWD:/mnt/extra-addons:ro" odoo:19 \
-            odoo -d test -i odoo_owl_counter_widget --test-enable --test-tags=/odoo_owl_counter_widget --stop-after-init 2>&1 | tee odoo.log
+            odoo -d test -i odoo_owl_counter_widget --with-demo --test-enable --test-tags=/odoo_owl_counter_widget --stop-after-init 2>&1 | tee odoo.log
           grep -E "0 failed, 0 error\(s\) of [1-9][0-9]* tests" odoo.log
