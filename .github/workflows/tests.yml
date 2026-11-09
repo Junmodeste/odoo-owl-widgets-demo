@@ -11,6 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Build odoo:19 with headless Chrome for the hoot tests
+        # Odoo's browser_js looks for google-chrome and needs websocket-client;
+        # without them tests/test_js.py is skipped.
+        run: |
+          docker build -t odoo-chrome:19 - <<'EOF'
+          FROM odoo:19
+          USER root
+          RUN curl -fsSL -o /tmp/chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
+           && apt-get update \
+           && apt-get install -y --no-install-recommends /tmp/chrome.deb python3-websocket \
+           && rm -rf /var/lib/apt/lists/* /tmp/chrome.deb
+          USER odoo
+          EOF
       - name: Install and test on odoo:19 + postgres:16
         run: |
           docker network create odoo
@@ -19,6 +32,8 @@ jobs:
           until docker exec db pg_isready -U odoo; do sleep 1; done
           # The image entrypoint reads the database settings from HOST/USER/PASSWORD.
           docker run --rm --network odoo -e HOST=db -e USER=odoo -e PASSWORD=odoo \
-            -v "$PWD:/mnt/extra-addons:ro" odoo:19 \
+            -v "$PWD:/mnt/extra-addons:ro" odoo-chrome:19 \
             odoo -d test -i odoo_owl_counter_widget --with-demo --test-enable --test-tags=/odoo_owl_counter_widget --stop-after-init 2>&1 | tee odoo.log
           grep -E "0 failed, 0 error\(s\) of [1-9][0-9]* tests" odoo.log
+          # Fails if the hoot suite was skipped (line missing) instead of run.
+          grep -q "\[HOOT\] Test suite succeeded" odoo.log

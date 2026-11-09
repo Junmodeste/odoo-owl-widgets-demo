@@ -44,7 +44,7 @@ Tests JS : connecté en administrateur, ouvrez `/web/tests?filter=odoo_owl_count
 
 ### Versions supportées
 
-Une branche par version d'Odoo : [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0) (cette branche), [`18.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/18.0), [`17.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/17.0). Testé sur Odoo 19 Community (image `odoo:19` 19.0-20261102), à chaque push par GitHub Actions. La CI lance les tests Python ; les tests JS hoot y sont ignorés (pas de Chrome dans l'image), lancez-les dans le navigateur.
+Une branche par version d'Odoo : [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0) (cette branche), [`18.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/18.0), [`17.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/17.0). Testé sur Odoo 19 Community (image `odoo:19` 19.0-20261102), à chaque push par GitHub Actions. La CI lance les tests Python et les tests JS hoot (Chrome headless ajouté à l'image `odoo:19`).
 
 ### Licence
 
@@ -83,7 +83,7 @@ JS tests: logged in as administrator, open `/web/tests?filter=odoo_owl_counter_w
 
 ### Supported versions
 
-One branch per Odoo version: [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0) (this branch), [`18.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/18.0), [`17.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/17.0). Tested on Odoo 19 Community (`odoo:19` image 19.0-20261102) on every push by GitHub Actions. CI runs the Python tests; the hoot JS tests are skipped there (no Chrome in the image), run them in the browser.
+One branch per Odoo version: [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0) (this branch), [`18.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/18.0), [`17.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/17.0). Tested on Odoo 19 Community (`odoo:19` image 19.0-20261102) on every push by GitHub Actions. CI runs the Python tests and the hoot JS tests (headless Chrome added to the `odoo:19` image).
 
 ### License
 
