@@ -44,7 +44,7 @@ Tests JS : connecté en administrateur, ouvrez `/web/tests?filter=odoo_owl_count
 
 ### Versions supportées
 
-Cette branche : Odoo **18.0**. Autres branches : [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0). Testé sur Odoo 18 Community (image `odoo:18` 18.0-20261102), à chaque push par GitHub Actions. La CI lance les tests Python ; les tests JS hoot y sont ignorés (pas de Chrome dans l'image), lancez-les dans le navigateur.
+Cette branche : Odoo **18.0**. Autres branches : [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0), [`17.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/17.0). Testé sur Odoo 18 Community (image `odoo:18` 18.0-20261102), à chaque push par GitHub Actions. La CI lance les tests Python et les tests JS hoot (Chrome headless ajouté à l'image `odoo:18`).
 
 ### Licence
 
@@ -83,7 +83,7 @@ JS tests: logged in as administrator, open `/web/tests?filter=odoo_owl_counter_w
 
 ### Supported versions
 
-This branch: Odoo **18.0**. Other branches: [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0). Tested on Odoo 18 Community (`odoo:18` image 18.0-20261102) on every push by GitHub Actions. CI runs the Python tests; the hoot JS tests are skipped there (no Chrome in the image), run them in the browser.
+This branch: Odoo **18.0**. Other branches: [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0), [`17.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/17.0). Tested on Odoo 18 Community (`odoo:18` image 18.0-20261102) on every push by GitHub Actions. CI runs the Python tests and the hoot JS tests (headless Chrome added to the `odoo:18` image).
 
 ### License
 
