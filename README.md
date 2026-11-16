@@ -1,14 +1,14 @@
 # Odoo OWL Widgets Demo
 
-[![tests](https://github.com/Junmodeste/odoo-owl-widgets-demo/actions/workflows/tests.yml/badge.svg?branch=19.0)](https://github.com/Junmodeste/odoo-owl-widgets-demo/actions/workflows/tests.yml)
-[![Odoo 19](https://img.shields.io/badge/Odoo-19.0-714B67)](https://www.odoo.com)
+[![tests](https://github.com/Junmodeste/odoo-owl-widgets-demo/actions/workflows/tests.yml/badge.svg?branch=20.0)](https://github.com/Junmodeste/odoo-owl-widgets-demo/actions/workflows/tests.yml)
+[![Odoo 20](https://img.shields.io/badge/Odoo-20.0-714B67)](https://www.odoo.com)
 [![License: LGPL-3](https://img.shields.io/badge/License-LGPL--3-blue.svg)](LICENSE)
 
 🇫🇷 [Français](#français) · 🇬🇧 [English](#english)
 
 ## Français
 
-Le module `odoo_owl_counter_widget` montre, avec un code commenté en français, comment écrire des widgets de champ OWL pour Odoo 19.
+Le module `odoo_owl_counter_widget` montre, avec un code commenté en français, comment écrire des widgets de champ OWL pour Odoo 20.
 Il fournit `counter` (entier avec boutons − / +, sans boutons en lecture seule) et `status_badge` (champ selection affiché en badge coloré), ainsi qu'un petit modèle de démo pour les essayer.
 
 ![Formulaire de démo](odoo_owl_counter_widget/static/description/form.jpg)
@@ -32,19 +32,19 @@ Utilisation dans une vue :
 
 ### Prérequis
 
-- Odoo 19 (Community ou Enterprise) ; seul le module `web` est requis
+- Odoo 20 (Community ou Enterprise) ; seul le module `web` est requis
 
 ### Installation
 
 1. Copiez `odoo_owl_counter_widget` dans votre chemin d'addons.
 2. Mettez à jour la liste des applications puis installez **OWL Widgets Demo**.
-3. Ouvrez le menu **OWL Widgets Demo** et créez une tâche. Sur une base avec données de démonstration (option `--with-demo` en Odoo 19), quatre tâches, une par état, sont déjà présentes.
+3. Ouvrez le menu **OWL Widgets Demo** et créez une tâche. Sur une base avec données de démonstration (option `--with-demo` en Odoo 20), quatre tâches, une par état, sont déjà présentes.
 
 Tests JS : connecté en administrateur, ouvrez `/web/tests?filter=odoo_owl_counter_widget`. Le test Python `tests/test_js.py` les lance aussi dans Chrome headless (il est ignoré si Chrome n'est pas installé).
 
 ### Versions supportées
 
-Une branche par version d'Odoo : [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0) (cette branche), [`18.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/18.0), [`17.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/17.0). Testé sur Odoo 19 Community (image `odoo:19` 19.0-20261102), à chaque push par GitHub Actions. La CI lance les tests Python et les tests JS hoot (Chrome headless ajouté à l'image `odoo:19`).
+Une branche par version d'Odoo : [`20.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/20.0) (cette branche), [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0), [`18.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/18.0), [`17.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/17.0). Odoo 20 : les droits d'accès sont dans `security/ir.access.csv` (modèle `ir.access`, qui remplace `ir.model.access`) ; OWL passe en version 3 : les props se déclarent avec `props = useProps({...})` et les types `t.*` (plus de `static props` ni `defaultProps`), et les templates lisent le composant par `this` (`this.props.readonly`, `this.value`). Testé sur Odoo 20 Community (image `odoo:20` 20.0-20261112), à chaque push par GitHub Actions. La CI lance les tests Python et les tests JS hoot (Chrome headless ajouté à l'image `odoo:20`).
 
 ### Licence
 
@@ -56,7 +56,7 @@ Koffi Modeste Junior — [@Junmodeste](https://github.com/Junmodeste)
 
 ## English
 
-The `odoo_owl_counter_widget` module shows, with code commented in French, how to write OWL field widgets for Odoo 19.
+The `odoo_owl_counter_widget` module shows, with code commented in French, how to write OWL field widgets for Odoo 20.
 It ships `counter` (integer with − / + buttons, no buttons when read-only) and `status_badge` (selection field shown as a colored badge), plus a small demo model to try them.
 
 ### What to read
@@ -71,19 +71,19 @@ It ships `counter` (integer with − / + buttons, no buttons when read-only) and
 
 ### Requirements
 
-- Odoo 19 (Community or Enterprise); only the `web` module is required
+- Odoo 20 (Community or Enterprise); only the `web` module is required
 
 ### Installation
 
 1. Copy `odoo_owl_counter_widget` into your addons path.
 2. Update the apps list and install **OWL Widgets Demo**.
-3. Open the **OWL Widgets Demo** menu and create a task. On a database with demo data (`--with-demo` option in Odoo 19), four tasks, one per state, are already there.
+3. Open the **OWL Widgets Demo** menu and create a task. On a database with demo data (`--with-demo` option in Odoo 20), four tasks, one per state, are already there.
 
 JS tests: logged in as administrator, open `/web/tests?filter=odoo_owl_counter_widget`. The Python test `tests/test_js.py` also runs them in headless Chrome (skipped when Chrome is not installed).
 
 ### Supported versions
 
-One branch per Odoo version: [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0) (this branch), [`18.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/18.0), [`17.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/17.0). Tested on Odoo 19 Community (`odoo:19` image 19.0-20261102) on every push by GitHub Actions. CI runs the Python tests and the hoot JS tests (headless Chrome added to the `odoo:19` image).
+One branch per Odoo version: [`20.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/20.0) (this branch), [`19.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/19.0), [`18.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/18.0), [`17.0`](https://github.com/Junmodeste/odoo-owl-widgets-demo/tree/17.0). Odoo 20: access rights live in `security/ir.access.csv` (`ir.access` model, replacing `ir.model.access`); OWL moves to version 3: props are declared with `props = useProps({...})` and `t.*` types (no more `static props` or `defaultProps`), and templates read the component through `this` (`this.props.readonly`, `this.value`). Tested on Odoo 20 Community (`odoo:20` image 20.0-20261112) on every push by GitHub Actions. CI runs the Python tests and the hoot JS tests (headless Chrome added to the `odoo:20` image).
 
 ### License
 

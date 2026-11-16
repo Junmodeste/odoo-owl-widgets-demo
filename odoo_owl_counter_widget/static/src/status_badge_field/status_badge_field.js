@@ -5,7 +5,7 @@
  * Usage : <field name="state" widget="status_badge"/>
  * Couleurs personnalisables : options="{'colors': {'done': 'success'}}"
  */
-import { Component } from "@odoo/owl";
+import { Component, t, useProps } from "@odoo/owl";
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
@@ -20,11 +20,10 @@ const DEFAULT_COLORS = {
 
 export class StatusBadgeField extends Component {
     static template = "odoo_owl_counter_widget.StatusBadgeField";
-    static props = {
+    props = useProps({
         ...standardFieldProps,
-        colors: { type: Object, optional: true },
-    };
-    static defaultProps = { colors: {} };
+        colors: t.object().optional({}),
+    });
 
     get value() {
         return this.props.record.data[this.props.name];

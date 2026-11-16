@@ -1,11 +1,11 @@
 /**
  * Widget de champ « counter » : affiche un entier avec des boutons − et +.
  *
- * Un widget de champ Odoo 19 = un composant OWL + un objet de description
+ * Un widget de champ Odoo 20 = un composant OWL + un objet de description
  * enregistré dans le registre `fields`. Le nom d'enregistrement ("counter")
  * est celui utilisé dans les vues : <field name="quantity" widget="counter"/>.
  */
-import { Component } from "@odoo/owl";
+import { Component, t, useProps } from "@odoo/owl";
 import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { standardFieldProps } from "@web/views/fields/standard_field_props";
@@ -14,12 +14,13 @@ export class CounterField extends Component {
     // Template XML (voir counter_field.xml), chargé via les assets du manifeste.
     static template = "odoo_owl_counter_widget.CounterField";
 
+    // Owl 3 (Odoo 20) : le schéma des props se déclare avec useProps et les
+    // types t.* ; la valeur par défaut se passe à optional() (plus de defaultProps).
     // standardFieldProps fournit : record, name, readonly, id.
-    static props = {
+    props = useProps({
         ...standardFieldProps,
-        step: { type: Number, optional: true },
-    };
-    static defaultProps = { step: 1 };
+        step: t.number().optional(1),
+    });
 
     /** Valeur courante, lue sur l'enregistrement (0 si vide). */
     get value() {

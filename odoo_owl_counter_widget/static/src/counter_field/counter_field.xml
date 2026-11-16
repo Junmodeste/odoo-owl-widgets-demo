@@ -4,12 +4,13 @@
     <!-- Nom du template = static template du composant -->
     <t t-name="odoo_owl_counter_widget.CounterField">
         <div class="o_counter_field d-inline-flex align-items-center gap-2">
-            <!-- props.readonly vient de la vue (readonly="...") : en lecture seule, pas de boutons -->
-            <button t-if="!props.readonly" type="button" class="btn btn-sm btn-secondary o_counter_minus"
-                    aria-label="Decrease" t-on-click="() => this.add(-props.step)">−</button>
-            <span class="o_counter_value fw-bold" t-esc="value"/>
-            <button t-if="!props.readonly" type="button" class="btn btn-sm btn-secondary o_counter_plus"
-                    aria-label="Increase" t-on-click="() => this.add(props.step)">+</button>
+            <!-- this.props.readonly vient de la vue (readonly="...") : en lecture seule, pas de boutons.
+                 Owl 3 (Odoo 20) : le template accède au composant par this (props seul = undefined). -->
+            <button t-if="!this.props.readonly" type="button" class="btn btn-sm btn-secondary o_counter_minus"
+                    aria-label="Decrease" t-on-click="() => this.add(-this.props.step)">−</button>
+            <span class="o_counter_value fw-bold" t-out="this.value"/>
+            <button t-if="!this.props.readonly" type="button" class="btn btn-sm btn-secondary o_counter_plus"
+                    aria-label="Increase" t-on-click="() => this.add(this.props.step)">+</button>
         </div>
     </t>
 
